@@ -138,7 +138,8 @@ $environment->hostname($hostname);
 // creates role and permission on your first hostname
 $role = Role::create(['name' => 'writer']);
 $permission = Permission::create(['name' => 'edit articles']);
-
+// Assigning Created Permissions to role
+$role->givePermissionTo($permission);
 // Retrieve user and check to make sure it has no roles yet
 $user = User::find(1);
 $user->getRoleNames();
